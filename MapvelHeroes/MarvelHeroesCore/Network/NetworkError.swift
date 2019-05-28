@@ -19,7 +19,7 @@ public enum NetworkError: Error, Equatable {
   /// error during generation app model from server response (JSON)
   case parsingError
   /// particular error from server side
-  case server
+  case server(ServerError)
   /// the others cases
   case unknown
 }

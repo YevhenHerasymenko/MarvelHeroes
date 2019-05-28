@@ -69,12 +69,10 @@ public class SessionManager: NetworkSessionManager {
     guard let responseData = data, !responseData.isEmpty else {
       return error.asNetworkError()
     }
-    guard let json = try? JSONSerialization.jsonObject(with: responseData, options: []),
-      let errorDict = json as? [String: AnyObject] else {
-        return .badResponse
+    guard let error = try? JSONDecoder().decode(ServerError.self, from: responseData) else {
+      return .parsingError
     }
-    print(errorDict)
-    return .server
+    return .server(error)
   }
 
 }
