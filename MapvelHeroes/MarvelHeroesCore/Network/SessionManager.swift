@@ -1,0 +1,80 @@
+//
+//  SessionManager.swift
+//  MarvelHeroesCore
+//
+//  Created by YevhenHerasymenko on 5/28/19.
+//  Copyright © 2019 YevhenHerasymenko. All rights reserved.
+//
+
+import Foundation
+
+extension AsyncBlockOperation: NetworkTask {}
+
+public class SessionManager: NetworkSessionManager {
+
+  private let parseOperationQueue = OperationQueue()
+  private let passResultOperationQueue = OperationQueue()
+  private var session: URLSession
+  private let networkOperationsQueue: OperationQueue
+
+  public init() {
+    passResultOperationQueue.underlyingQueue = DispatchQueue.main
+    let configuration = URLSessionConfiguration.default
+    configuration.timeoutIntervalForRequest = 20
+    session = URLSession(configuration: configuration)
+    networkOperationsQueue = OperationQueue()
+    networkOperationsQueue.underlyingQueue = DispatchQueue.main
+  }
+
+  /// Perform request for single object result
+  public func perform<T: Codable>(request value: NetworkRouting,
+                                            resultCallback: @escaping (NetworkResult<T>) -> Void) -> NetworkTask {
+    let task = AsyncBlockOperation<Void> { [weak self] (operation) in
+      guard !operation.isCancelled else {
+        return
+      }
+      self?.session.dataTask(with: value.asURLRequest(), completionHandler: { (data, response, error) in
+        defer {
+          operation.complete()
+        }
+        guard !operation.isCancelled else {
+          return
+        }
+        if let error = error {
+          resultCallback(NetworkResult<T>.failure(SessionManager.parse(error: error, with: data)))
+          return
+        }
+        guard let data = data else {
+          resultCallback(NetworkResult<T>.failure(.badResponse))
+          return
+        }
+        do {
+          let object = try JSONDecoder().decode(T.self, from: data)
+          resultCallback(NetworkResult<T>.success(object))
+        } catch {
+          resultCallback(NetworkResult<T>.failure(.parsingError))
+        }
+      }).resume()
+    }
+    networkOperationsQueue.addOperation(task)
+    return task
+  }
+
+  /// Cancel all operation
+  public func cancelAllOperation() {
+    networkOperationsQueue.cancelAllOperations()
+  }
+
+  private static func parse(error: Error, with data: Data?) -> NetworkError {
+    guard let responseData = data, !responseData.isEmpty else {
+      return error.asNetworkError()
+    }
+    guard let json = try? JSONSerialization.jsonObject(with: responseData, options: []),
+      let errorDict = json as? [String: AnyObject] else {
+        return .badResponse
+    }
+    print(errorDict)
+    return .server
+  }
+
+}
