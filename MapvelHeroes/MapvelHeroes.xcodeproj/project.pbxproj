@@ -10,6 +10,10 @@
 		7433DAAF229DAEB50009EE53 /* ServerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433DAAE229DAEB50009EE53 /* ServerError.swift */; };
 		7433DAB1229DAF890009EE53 /* ServerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433DAB0229DAF890009EE53 /* ServerData.swift */; };
 		7433DAB3229DB2A20009EE53 /* ServerResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433DAB2229DB2A20009EE53 /* ServerResult.swift */; };
+		7433DAB5229DBB650009EE53 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433DAB4229DBB650009EE53 /* Requests.swift */; };
+		7433DAB7229DBBEB0009EE53 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433DAB6229DBBEB0009EE53 /* Character.swift */; };
+		7433DABA229DBC7C0009EE53 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433DAB9229DBC7C0009EE53 /* String.swift */; };
+		7433DABC229DC1E90009EE53 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433DABB229DC1E90009EE53 /* Crypto.swift */; };
 		74770AAA229D631B00A23175 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770AA9229D631B00A23175 /* AppDelegate.swift */; };
 		74770AAC229D631B00A23175 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770AAB229D631B00A23175 /* ViewController.swift */; };
 		74770AAF229D631B00A23175 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74770AAD229D631B00A23175 /* Main.storyboard */; };
@@ -76,6 +80,10 @@
 		7433DAAE229DAEB50009EE53 /* ServerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerError.swift; sourceTree = "<group>"; };
 		7433DAB0229DAF890009EE53 /* ServerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerData.swift; sourceTree = "<group>"; };
 		7433DAB2229DB2A20009EE53 /* ServerResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResult.swift; sourceTree = "<group>"; };
+		7433DAB4229DBB650009EE53 /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
+		7433DAB6229DBBEB0009EE53 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		7433DAB9229DBC7C0009EE53 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		7433DABB229DC1E90009EE53 /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
 		74770AA6229D631B00A23175 /* MapvelHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapvelHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74770AA9229D631B00A23175 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74770AAB229D631B00A23175 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -138,8 +146,18 @@
 				7433DAAE229DAEB50009EE53 /* ServerError.swift */,
 				7433DAB0229DAF890009EE53 /* ServerData.swift */,
 				7433DAB2229DB2A20009EE53 /* ServerResult.swift */,
+				7433DAB6229DBBEB0009EE53 /* Character.swift */,
+				7433DAB4229DBB650009EE53 /* Requests.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		7433DAB8229DBC6E0009EE53 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7433DAB9229DBC7C0009EE53 /* String.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		74770A9D229D631B00A23175 = {
@@ -189,6 +207,7 @@
 		74770ACF229D670F00A23175 /* MarvelHeroesCore */ = {
 			isa = PBXGroup;
 			children = (
+				7433DAB8229DBC6E0009EE53 /* Extensions */,
 				7433DAAD229DAEA60009EE53 /* Models */,
 				74770AF3229D7FD900A23175 /* Tools */,
 				74770AEC229D7B9700A23175 /* Network */,
@@ -221,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				74770AF4229D7FF200A23175 /* AsyncBlockOperation.swift */,
+				7433DABB229DC1E90009EE53 /* Crypto.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -417,11 +437,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7433DAB7229DBBEB0009EE53 /* Character.swift in Sources */,
 				7433DAB1229DAF890009EE53 /* ServerData.swift in Sources */,
+				7433DABA229DBC7C0009EE53 /* String.swift in Sources */,
 				7433DAAF229DAEB50009EE53 /* ServerError.swift in Sources */,
 				74770AEE229D7C9100A23175 /* NetworkSessionManager.swift in Sources */,
 				74770AF0229D7D2A00A23175 /* NetworkError.swift in Sources */,
 				74770AF5229D7FF200A23175 /* AsyncBlockOperation.swift in Sources */,
+				7433DAB5229DBB650009EE53 /* Requests.swift in Sources */,
+				7433DABC229DC1E90009EE53 /* Crypto.swift in Sources */,
 				7433DAB3229DB2A20009EE53 /* ServerResult.swift in Sources */,
 				74770AF2229D7F1B00A23175 /* SessionManager.swift in Sources */,
 			);
