@@ -11,14 +11,11 @@ import Foundation
 extension AsyncBlockOperation: NetworkTask {}
 
 public class SessionManager: NetworkSessionManager {
-
-  private let parseOperationQueue = OperationQueue()
-  private let passResultOperationQueue = OperationQueue()
+  
   private var session: URLSession
   private let networkOperationsQueue: OperationQueue
 
   public init() {
-    passResultOperationQueue.underlyingQueue = DispatchQueue.main
     let configuration = URLSessionConfiguration.default
     configuration.timeoutIntervalForRequest = 20
     session = URLSession(configuration: configuration)

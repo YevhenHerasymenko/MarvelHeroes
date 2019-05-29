@@ -7,12 +7,22 @@
 //
 
 import UIKit
+import MarvelHeroesCore
 
 class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
+
+    let request = CharacterEndpoints.characters(offset: 0, name: nil)
+    SessionManager().perform(request: request) { (result: NetworkResult<ServerResult<Character>>) in
+      switch result {
+      case .success(let serverResult):
+        print(serverResult)
+      case .failure(let error):
+        print(error)
+      }
+    }
   }
 
 

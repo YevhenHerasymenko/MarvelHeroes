@@ -29,6 +29,8 @@
 		74770AF0229D7D2A00A23175 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770AEF229D7D2A00A23175 /* NetworkError.swift */; };
 		74770AF2229D7F1B00A23175 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770AF1229D7F1B00A23175 /* SessionManager.swift */; };
 		74770AF5229D7FF200A23175 /* AsyncBlockOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770AF4229D7FF200A23175 /* AsyncBlockOperation.swift */; };
+		74770AF7229E8EA000A23175 /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770AF6229E8EA000A23175 /* Thumbnail.swift */; };
+		74770AF9229E947800A23175 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770AF8229E947800A23175 /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +106,8 @@
 		74770AEF229D7D2A00A23175 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		74770AF1229D7F1B00A23175 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		74770AF4229D7FF200A23175 /* AsyncBlockOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncBlockOperation.swift; sourceTree = "<group>"; };
+		74770AF6229E8EA000A23175 /* Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
+		74770AF8229E947800A23175 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,7 +151,8 @@
 				7433DAB0229DAF890009EE53 /* ServerData.swift */,
 				7433DAB2229DB2A20009EE53 /* ServerResult.swift */,
 				7433DAB6229DBBEB0009EE53 /* Character.swift */,
-				7433DAB4229DBB650009EE53 /* Requests.swift */,
+				74770AF6229E8EA000A23175 /* Thumbnail.swift */,
+				74770AF8229E947800A23175 /* Item.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -232,6 +237,7 @@
 				74770AED229D7C9100A23175 /* NetworkSessionManager.swift */,
 				74770AF1229D7F1B00A23175 /* SessionManager.swift */,
 				74770AEF229D7D2A00A23175 /* NetworkError.swift */,
+				7433DAB4229DBB650009EE53 /* Requests.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -439,12 +445,14 @@
 			files = (
 				7433DAB7229DBBEB0009EE53 /* Character.swift in Sources */,
 				7433DAB1229DAF890009EE53 /* ServerData.swift in Sources */,
+				74770AF7229E8EA000A23175 /* Thumbnail.swift in Sources */,
 				7433DABA229DBC7C0009EE53 /* String.swift in Sources */,
 				7433DAAF229DAEB50009EE53 /* ServerError.swift in Sources */,
 				74770AEE229D7C9100A23175 /* NetworkSessionManager.swift in Sources */,
 				74770AF0229D7D2A00A23175 /* NetworkError.swift in Sources */,
 				74770AF5229D7FF200A23175 /* AsyncBlockOperation.swift in Sources */,
 				7433DAB5229DBB650009EE53 /* Requests.swift in Sources */,
+				74770AF9229E947800A23175 /* Item.swift in Sources */,
 				7433DABC229DC1E90009EE53 /* Crypto.swift in Sources */,
 				7433DAB3229DB2A20009EE53 /* ServerResult.swift in Sources */,
 				74770AF2229D7F1B00A23175 /* SessionManager.swift in Sources */,

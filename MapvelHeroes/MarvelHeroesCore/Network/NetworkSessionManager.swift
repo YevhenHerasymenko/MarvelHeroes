@@ -34,12 +34,7 @@ public protocol NetworkSessionManager {
   @discardableResult func perform<T: Codable>(
     request value: NetworkRouting,
     resultCallback: @escaping (NetworkResult<T>) -> Void) -> NetworkTask
-
-  /// method for request with array of objects in response
-  @discardableResult func perform<T: Codable>(
-    request value: NetworkRouting,
-    resultCallback: @escaping (NetworkResult<[T]>) -> Void) -> NetworkTask
-
+  
   /// cancel all operation
   func cancelAllOperation()
 }
