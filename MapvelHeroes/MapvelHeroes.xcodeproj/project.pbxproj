@@ -14,6 +14,17 @@
 		7433DAB7229DBBEB0009EE53 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433DAB6229DBBEB0009EE53 /* Character.swift */; };
 		7433DABA229DBC7C0009EE53 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433DAB9229DBC7C0009EE53 /* String.swift */; };
 		7433DABC229DC1E90009EE53 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433DABB229DC1E90009EE53 /* Crypto.swift */; };
+		7433DABF229EE6070009EE53 /* Redux.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433DABE229EE6070009EE53 /* Redux.swift */; };
+		7433DAC1229EF69A0009EE53 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433DAC0229EF69A0009EE53 /* Store.swift */; };
+		7433DAC3229EF90F0009EE53 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433DAC2229EF90F0009EE53 /* Subscription.swift */; };
+		7433DAC6229EFBC80009EE53 /* SearchCharactersFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433DAC5229EFBC80009EE53 /* SearchCharactersFlow.swift */; };
+		7433DAC9229EFC1C0009EE53 /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433DAC8229EFC1C0009EE53 /* Middleware.swift */; };
+		7433DACB229EFC370009EE53 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433DACA229EFC370009EE53 /* AppState.swift */; };
+		7433DACD229EFCA70009EE53 /* Thunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433DACC229EFCA70009EE53 /* Thunk.swift */; };
+		7433DAD0229EFD0C0009EE53 /* NetworkMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433DACF229EFD0C0009EE53 /* NetworkMiddleware.swift */; };
+		7433DAD3229EFDDC0009EE53 /* PersistentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433DAD2229EFDDC0009EE53 /* PersistentManager.swift */; };
+		7433DAD5229EFE140009EE53 /* PersistenceMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433DAD4229EFE140009EE53 /* PersistenceMiddleware.swift */; };
+		7433DAD8229EFE4A0009EE53 /* CoreDataWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433DAD7229EFE4A0009EE53 /* CoreDataWorker.swift */; };
 		74770AAA229D631B00A23175 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770AA9229D631B00A23175 /* AppDelegate.swift */; };
 		74770AAC229D631B00A23175 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770AAB229D631B00A23175 /* ViewController.swift */; };
 		74770AAF229D631B00A23175 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74770AAD229D631B00A23175 /* Main.storyboard */; };
@@ -86,6 +97,17 @@
 		7433DAB6229DBBEB0009EE53 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		7433DAB9229DBC7C0009EE53 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		7433DABB229DC1E90009EE53 /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
+		7433DABE229EE6070009EE53 /* Redux.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Redux.swift; sourceTree = "<group>"; };
+		7433DAC0229EF69A0009EE53 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		7433DAC2229EF90F0009EE53 /* Subscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscription.swift; sourceTree = "<group>"; };
+		7433DAC5229EFBC80009EE53 /* SearchCharactersFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCharactersFlow.swift; sourceTree = "<group>"; };
+		7433DAC8229EFC1C0009EE53 /* Middleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middleware.swift; sourceTree = "<group>"; };
+		7433DACA229EFC370009EE53 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		7433DACC229EFCA70009EE53 /* Thunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thunk.swift; sourceTree = "<group>"; };
+		7433DACF229EFD0C0009EE53 /* NetworkMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMiddleware.swift; sourceTree = "<group>"; };
+		7433DAD2229EFDDC0009EE53 /* PersistentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentManager.swift; sourceTree = "<group>"; };
+		7433DAD4229EFE140009EE53 /* PersistenceMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceMiddleware.swift; sourceTree = "<group>"; };
+		7433DAD7229EFE4A0009EE53 /* CoreDataWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataWorker.swift; sourceTree = "<group>"; };
 		74770AA6229D631B00A23175 /* MapvelHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapvelHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74770AA9229D631B00A23175 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74770AAB229D631B00A23175 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +187,54 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		7433DABD229EE5ED0009EE53 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				7433DABE229EE6070009EE53 /* Redux.swift */,
+				7433DAC0229EF69A0009EE53 /* Store.swift */,
+				7433DAC2229EF90F0009EE53 /* Subscription.swift */,
+				7433DAC8229EFC1C0009EE53 /* Middleware.swift */,
+				7433DACC229EFCA70009EE53 /* Thunk.swift */,
+				7433DACA229EFC370009EE53 /* AppState.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		7433DAC4229EFBB00009EE53 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				7433DAC5229EFBC80009EE53 /* SearchCharactersFlow.swift */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		7433DACE229EFCDB0009EE53 /* Middlewares */ = {
+			isa = PBXGroup;
+			children = (
+				7433DAD1229EFD7C0009EE53 /* Persistance */,
+				7433DACF229EFD0C0009EE53 /* NetworkMiddleware.swift */,
+			);
+			path = Middlewares;
+			sourceTree = "<group>";
+		};
+		7433DAD1229EFD7C0009EE53 /* Persistance */ = {
+			isa = PBXGroup;
+			children = (
+				7433DAD2229EFDDC0009EE53 /* PersistentManager.swift */,
+				7433DAD4229EFE140009EE53 /* PersistenceMiddleware.swift */,
+				7433DAD6229EFE390009EE53 /* CoreData */,
+			);
+			path = Persistance;
+			sourceTree = "<group>";
+		};
+		7433DAD6229EFE390009EE53 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				7433DAD7229EFE4A0009EE53 /* CoreDataWorker.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		74770A9D229D631B00A23175 = {
 			isa = PBXGroup;
 			children = (
@@ -212,9 +282,12 @@
 		74770ACF229D670F00A23175 /* MarvelHeroesCore */ = {
 			isa = PBXGroup;
 			children = (
+				7433DAC4229EFBB00009EE53 /* Flows */,
+				7433DABD229EE5ED0009EE53 /* Core */,
 				7433DAB8229DBC6E0009EE53 /* Extensions */,
 				7433DAAD229DAEA60009EE53 /* Models */,
 				74770AF3229D7FD900A23175 /* Tools */,
+				7433DACE229EFCDB0009EE53 /* Middlewares */,
 				74770AEC229D7B9700A23175 /* Network */,
 				74770AD0229D670F00A23175 /* MarvelHeroesCore.h */,
 				74770AD1229D670F00A23175 /* Info.plist */,
@@ -443,16 +516,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7433DAD3229EFDDC0009EE53 /* PersistentManager.swift in Sources */,
+				7433DACD229EFCA70009EE53 /* Thunk.swift in Sources */,
+				7433DAC1229EF69A0009EE53 /* Store.swift in Sources */,
+				7433DAC6229EFBC80009EE53 /* SearchCharactersFlow.swift in Sources */,
+				7433DACB229EFC370009EE53 /* AppState.swift in Sources */,
 				7433DAB7229DBBEB0009EE53 /* Character.swift in Sources */,
+				7433DAC3229EF90F0009EE53 /* Subscription.swift in Sources */,
 				7433DAB1229DAF890009EE53 /* ServerData.swift in Sources */,
+				7433DABF229EE6070009EE53 /* Redux.swift in Sources */,
+				7433DAD0229EFD0C0009EE53 /* NetworkMiddleware.swift in Sources */,
+				7433DAD5229EFE140009EE53 /* PersistenceMiddleware.swift in Sources */,
 				74770AF7229E8EA000A23175 /* Thumbnail.swift in Sources */,
 				7433DABA229DBC7C0009EE53 /* String.swift in Sources */,
 				7433DAAF229DAEB50009EE53 /* ServerError.swift in Sources */,
+				7433DAC9229EFC1C0009EE53 /* Middleware.swift in Sources */,
 				74770AEE229D7C9100A23175 /* NetworkSessionManager.swift in Sources */,
 				74770AF0229D7D2A00A23175 /* NetworkError.swift in Sources */,
 				74770AF5229D7FF200A23175 /* AsyncBlockOperation.swift in Sources */,
 				7433DAB5229DBB650009EE53 /* Requests.swift in Sources */,
 				74770AF9229E947800A23175 /* Item.swift in Sources */,
+				7433DAD8229EFE4A0009EE53 /* CoreDataWorker.swift in Sources */,
 				7433DABC229DC1E90009EE53 /* Crypto.swift in Sources */,
 				7433DAB3229DB2A20009EE53 /* ServerResult.swift in Sources */,
 				74770AF2229D7F1B00A23175 /* SessionManager.swift in Sources */,
