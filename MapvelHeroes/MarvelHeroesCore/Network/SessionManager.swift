@@ -25,12 +25,12 @@ public class SessionManager: NetworkSessionManager {
 
   /// Perform request for single object result
   public func perform<T: Codable>(request value: NetworkRouting,
-                                            resultCallback: @escaping (NetworkResult<T>) -> Void) -> NetworkTask {
+                                  resultCallback: @escaping (NetworkResult<T>) -> Void) -> NetworkTask {
     let task = AsyncBlockOperation<Void> { [weak self] (operation) in
       guard !operation.isCancelled else {
         return
       }
-      self?.session.dataTask(with: value.asURLRequest(), completionHandler: { (data, response, error) in
+      self?.session.dataTask(with: value.asURLRequest(), completionHandler: { (data, _, error) in
         defer {
           operation.complete()
         }

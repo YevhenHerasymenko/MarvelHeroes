@@ -26,7 +26,9 @@ public enum SearchCharactersFlow {
     /// Action for UI
     public var action: DisplayAction?
     public var characters: [Character] = []
-    public var savedCharacterIds: [Int] = []
+
+    // TODO: Create structure for incapsulate actions with characterIds
+    public var savedCharacterIds = Set<Int>()
     public var total: Int = 0
     public var query: String?
   }
@@ -38,6 +40,7 @@ extension SearchCharactersFlow {
   enum Actions: Action {
     case clear
     case setCharacters([Character], isReload: Bool)
+    case setSavedCharacters(Set<Int>)
     case setTotal(Int)
     case setAction(DisplayAction?)
     case setQuery(String?)
@@ -62,6 +65,8 @@ extension SearchCharactersFlow.Reducer {
         newCharacters.append(contentsOf: characters)
         state.characters = characters
       }
+    case .setSavedCharacters(let identifiers):
+      state.savedCharacterIds = identifiers
     case .setTotal(let total):
       state.total = total
     case .setAction(let action):
@@ -79,6 +84,7 @@ extension SearchCharactersFlow {
 
   public static func reloadContent() -> Thunk<AppState> {
     return Thunk<AppState> { dispatch, _ in
+      dispatch(PersistanceActions.revialSavedCharacters)
       dispatch(CharacterEndpoints.characters(offset: 0, name: nil))
     }
   }
@@ -110,8 +116,22 @@ extension SearchCharactersFlow {
   }
 
   public static func didTapSave(at index: Int) -> Thunk<AppState> {
-    return Thunk<AppState> { dispatch, _ in
-      
+    return Thunk<AppState> { dispatch, getState in
+      guard let state = getState()?.searchCharactersState,
+        state.characters.count > index else {
+        fatalError()
+      }
+      let character = state.characters[index]
+      var identifiers = state.savedCharacterIds
+      let isSaved = identifiers.contains(character.identifier)
+      if isSaved {
+        dispatch(PersistanceActions.delete(character))
+        identifiers.remove(character.identifier)
+      } else {
+        dispatch(PersistanceActions.store(character))
+        identifiers.insert(character.identifier)
+      }
+      dispatch(Actions.setSavedCharacters(identifiers))
     }
   }
 

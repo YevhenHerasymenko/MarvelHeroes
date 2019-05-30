@@ -70,8 +70,7 @@ public class Subscription<State> {
 
   private func _select<Substate>(
     _ selector: @escaping (State) -> Substate
-    ) -> Subscription<Substate>
-  {
+    ) -> Subscription<Substate> {
     return Subscription<Substate> { sink in
       self.observer = { oldState, newState in
         sink(oldState.map(selector) ?? nil, selector(newState))
@@ -95,8 +94,7 @@ public class Subscription<State> {
   /// - parameter selector: A closure that maps a state to a selected substate
   public func select<Substate>(
     _ selector: @escaping (State) -> Substate
-    ) -> Subscription<Substate>
-  {
+    ) -> Subscription<Substate> {
     return self._select(selector)
   }
 
@@ -138,7 +136,7 @@ public class Subscription<State> {
 }
 
 extension Subscription where State: Equatable {
-  public func skipRepeats() -> Subscription<State>{
+  public func skipRepeats() -> Subscription<State> {
     return self.skipRepeats(==)
   }
 }

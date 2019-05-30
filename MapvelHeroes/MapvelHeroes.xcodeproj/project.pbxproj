@@ -50,6 +50,10 @@
 		74770B0F22A00ED800A23175 /* ModelTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770B0E22A00ED800A23175 /* ModelTransformer.swift */; };
 		74770B1122A00F1300A23175 /* ThumbnailTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770B1022A00F1300A23175 /* ThumbnailTransform.swift */; };
 		74770B1322A010D300A23175 /* CharacterTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770B1222A010D300A23175 /* CharacterTransform.swift */; };
+		74770B1622A0258700A23175 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770B1522A0258700A23175 /* UIImageView.swift */; };
+		74770B1A22A0263300A23175 /* CharactersListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770B1822A0263300A23175 /* CharactersListTableViewCell.swift */; };
+		74770B1B22A0263300A23175 /* CharactersListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74770B1922A0263300A23175 /* CharactersListTableViewCell.xib */; };
+		74770B1D22A0266B00A23175 /* ViewIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770B1C22A0266B00A23175 /* ViewIdentifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +150,10 @@
 		74770B0E22A00ED800A23175 /* ModelTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTransformer.swift; sourceTree = "<group>"; };
 		74770B1022A00F1300A23175 /* ThumbnailTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailTransform.swift; sourceTree = "<group>"; };
 		74770B1222A010D300A23175 /* CharacterTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTransform.swift; sourceTree = "<group>"; };
+		74770B1522A0258700A23175 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		74770B1822A0263300A23175 /* CharactersListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListTableViewCell.swift; sourceTree = "<group>"; };
+		74770B1922A0263300A23175 /* CharactersListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharactersListTableViewCell.xib; sourceTree = "<group>"; };
+		74770B1C22A0266B00A23175 /* ViewIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewIdentifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -356,6 +364,7 @@
 			children = (
 				74770AFC229FE14F00A23175 /* CharactersListViewController.swift */,
 				74770AFD229FE14F00A23175 /* CharactersListDataTransformer.swift */,
+				74770B1722A0261900A23175 /* Cell */,
 			);
 			path = CharactersList;
 			sourceTree = "<group>";
@@ -365,6 +374,8 @@
 			children = (
 				74770B01229FE1A500A23175 /* ViewModel.swift */,
 				74770B03229FEED900A23175 /* StateTransformer.swift */,
+				74770B1C22A0266B00A23175 /* ViewIdentifier.swift */,
+				74770B1422A0256C00A23175 /* Extensions */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -396,6 +407,23 @@
 			path = ModelTransformation;
 			sourceTree = "<group>";
 		};
+		74770B1422A0256C00A23175 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				74770B1522A0258700A23175 /* UIImageView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		74770B1722A0261900A23175 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				74770B1822A0263300A23175 /* CharactersListTableViewCell.swift */,
+				74770B1922A0263300A23175 /* CharactersListTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -418,6 +446,7 @@
 				74770AA3229D631B00A23175 /* Frameworks */,
 				74770AA4229D631B00A23175 /* Resources */,
 				74770AE8229D671000A23175 /* Embed Frameworks */,
+				74770B1F22A026F600A23175 /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -541,6 +570,7 @@
 				74770B0C229FFCCF00A23175 /* Localizable.strings in Resources */,
 				74770AB1229D631C00A23175 /* Assets.xcassets in Resources */,
 				74770AAF229D631B00A23175 /* Main.storyboard in Resources */,
+				74770B1B22A0263300A23175 /* CharactersListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,15 +597,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		74770B1F22A026F600A23175 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		74770AA2229D631B00A23175 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				74770B02229FE1A500A23175 /* ViewModel.swift in Sources */,
+				74770B1A22A0263300A23175 /* CharactersListTableViewCell.swift in Sources */,
 				74770AAA229D631B00A23175 /* AppDelegate.swift in Sources */,
 				74770AFE229FE14F00A23175 /* CharactersListViewController.swift in Sources */,
 				74770AFF229FE14F00A23175 /* CharactersListDataTransformer.swift in Sources */,
+				74770B1D22A0266B00A23175 /* ViewIdentifier.swift in Sources */,
+				74770B1622A0258700A23175 /* UIImageView.swift in Sources */,
 				74770B04229FEED900A23175 /* StateTransformer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

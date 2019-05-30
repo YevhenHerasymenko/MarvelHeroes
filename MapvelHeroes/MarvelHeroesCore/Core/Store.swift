@@ -122,10 +122,8 @@ open class Store<State: StateType>: StoreType {
     // Wrap the dispatch function with all middlewares
     self.dispatchFunction = middleware
       .reversed()
-      .reduce(
-        { [unowned self] action in
-          self._defaultDispatch(action: action) },
-        { dispatchFunction, middleware in
+      .reduce({ [unowned self] action in
+          self._defaultDispatch(action: action) }, { dispatchFunction, middleware in
           // If the store get's deinitialized before the middleware is complete; drop
           // the action without dispatching.
           let dispatch: (Action) -> Void = { [weak self] in self?.dispatch($0) }
@@ -143,8 +141,7 @@ open class Store<State: StateType>: StoreType {
   fileprivate func _subscribe<SelectedState, S: StoreSubscriber>(
     _ subscriber: S, originalSubscription: Subscription<State>,
     transformedSubscription: Subscription<SelectedState>?)
-    where S.StoreSubscriberStateType == SelectedState
-  {
+    where S.StoreSubscriberStateType == SelectedState {
     let subscriptionBox = self.subscriptionBox(
       originalSubscription: originalSubscription,
       transformedSubscription: transformedSubscription,
@@ -165,8 +162,7 @@ open class Store<State: StateType>: StoreType {
 
   open func subscribe<SelectedState, S: StoreSubscriber>(
     _ subscriber: S, transform: ((Subscription<State>) -> Subscription<SelectedState>)?
-    ) where S.StoreSubscriberStateType == SelectedState
-  {
+    ) where S.StoreSubscriberStateType == SelectedState {
     // Create a subscription for the new subscriber.
     let originalSubscription = Subscription<State>()
     // Call the optional transformation closure. This allows callers to modify
@@ -219,8 +215,7 @@ open class Store<State: StateType>: StoreType {
 extension Store {
   open func subscribe<SelectedState: Equatable, S: StoreSubscriber>(
     _ subscriber: S, transform: ((Subscription<State>) -> Subscription<SelectedState>)?
-    ) where S.StoreSubscriberStateType == SelectedState
-  {
+    ) where S.StoreSubscriberStateType == SelectedState {
     let originalSubscription = Subscription<State>()
 
     var transformedSubscription = transform?(originalSubscription)

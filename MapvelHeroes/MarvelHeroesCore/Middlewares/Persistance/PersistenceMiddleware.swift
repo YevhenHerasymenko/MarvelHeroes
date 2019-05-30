@@ -44,7 +44,10 @@ extension PersistenceMiddleware {
     }
     switch persistentAction {
     case .revialSavedCharacters:
-      let characters = CoreDataWorker.loadCharacters(service: service)
+      let characters = CoreDataWorker.loadCharacters(service: service) ?? []
+      context.dispatch(SearchCharactersFlow.Actions.setCharacters(characters, isReload: true))
+      let identifiers = Set<Int>(characters.map { $0.identifier })
+      context.dispatch(SearchCharactersFlow.Actions.setSavedCharacters(identifiers))
     case .store(let character):
       CoreDataWorker.store(character: character, service: service)
     case .delete(let character):
