@@ -25,6 +25,7 @@
 		7433DAD3229EFDDC0009EE53 /* PersistentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433DAD2229EFDDC0009EE53 /* PersistentManager.swift */; };
 		7433DAD5229EFE140009EE53 /* PersistenceMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433DAD4229EFE140009EE53 /* PersistenceMiddleware.swift */; };
 		7433DAD8229EFE4A0009EE53 /* CoreDataWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433DAD7229EFE4A0009EE53 /* CoreDataWorker.swift */; };
+		7433DADA22A04E4C0009EE53 /* CharacterDetailsFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433DAD922A04E4B0009EE53 /* CharacterDetailsFlow.swift */; };
 		74770AAA229D631B00A23175 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770AA9229D631B00A23175 /* AppDelegate.swift */; };
 		74770AAF229D631B00A23175 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74770AAD229D631B00A23175 /* Main.storyboard */; };
 		74770AB1229D631C00A23175 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74770AB0229D631C00A23175 /* Assets.xcassets */; };
@@ -120,6 +121,7 @@
 		7433DAD2229EFDDC0009EE53 /* PersistentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentManager.swift; sourceTree = "<group>"; };
 		7433DAD4229EFE140009EE53 /* PersistenceMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceMiddleware.swift; sourceTree = "<group>"; };
 		7433DAD7229EFE4A0009EE53 /* CoreDataWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataWorker.swift; sourceTree = "<group>"; };
+		7433DAD922A04E4B0009EE53 /* CharacterDetailsFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsFlow.swift; sourceTree = "<group>"; };
 		74770AA6229D631B00A23175 /* MapvelHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapvelHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74770AA9229D631B00A23175 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74770AAE229D631B00A23175 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				7433DAC5229EFBC80009EE53 /* SearchCharactersFlow.swift */,
+				7433DAD922A04E4B0009EE53 /* CharacterDetailsFlow.swift */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -671,6 +674,7 @@
 				7433DAB5229DBB650009EE53 /* Requests.swift in Sources */,
 				74770AF9229E947800A23175 /* Item.swift in Sources */,
 				7433DAD8229EFE4A0009EE53 /* CoreDataWorker.swift in Sources */,
+				7433DADA22A04E4C0009EE53 /* CharacterDetailsFlow.swift in Sources */,
 				7433DABC229DC1E90009EE53 /* Crypto.swift in Sources */,
 				7433DAB3229DB2A20009EE53 /* ServerResult.swift in Sources */,
 				74770AF2229D7F1B00A23175 /* SessionManager.swift in Sources */,

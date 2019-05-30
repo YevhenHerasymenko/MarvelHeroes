@@ -18,7 +18,7 @@ public class SessionManager: NetworkSessionManager {
   public init() {
     let configuration = URLSessionConfiguration.default
     configuration.timeoutIntervalForRequest = 20
-    session = URLSession(configuration: configuration)
+    session = URLSession(configuration: configuration, delegate: nil, delegateQueue: .main)
     networkOperationsQueue = OperationQueue()
     networkOperationsQueue.underlyingQueue = DispatchQueue.main
   }

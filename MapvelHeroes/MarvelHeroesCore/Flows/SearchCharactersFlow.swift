@@ -115,6 +115,17 @@ extension SearchCharactersFlow {
     }
   }
 
+  public static func didSelectCharacter(at index: Int) -> Thunk<AppState> {
+    return Thunk<AppState> { dispatch, getState in
+      guard let state = getState(),
+        state.searchCharactersState.characters.count > index else {
+          fatalError()
+      }
+      let character = state.searchCharactersState.characters[index]
+      dispatch(CharacterDetailsFlow.Actions.setCharacter(character))
+    }
+  }
+
   public static func didTapSave(at index: Int) -> Thunk<AppState> {
     return Thunk<AppState> { dispatch, getState in
       guard let state = getState()?.searchCharactersState,

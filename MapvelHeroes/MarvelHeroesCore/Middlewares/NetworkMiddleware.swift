@@ -38,8 +38,20 @@ extension NetworkMiddleware {
         }
       }
       context.dispatch(SearchCharactersFlow.Actions.setAction(.loading))
-    case .itemDetails(let urlValue):
-      print(urlValue)
+    case .itemDetails:
+      service.perform(request: networkAction) { (result: NetworkResult<ServerResult<ItemFull>>) in
+        switch result {
+        case .success(let serverResult):
+          guard let item = serverResult.data.results.first else {
+            fatalError("No item")
+          }
+          context.dispatch(CharacterDetailsFlow.Actions.setItem(item))
+          context.dispatch(CharacterDetailsFlow.Actions.setAction(nil))
+        case .failure(let error):
+          context.dispatch(CharacterDetailsFlow.Actions.setAction(.error(.network(error))))
+        }
+      }
+      context.dispatch(CharacterDetailsFlow.Actions.setAction(.loading))
     }
     return nil
   }

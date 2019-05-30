@@ -18,10 +18,7 @@ public struct Thumbnail: Codable {
   let path: String
   let pathExtension: String
 
-  public var url: URL {
-    guard let url = URL(string: path + "." + pathExtension) else {
-      fatalError("\(self) cannot provide correct url")
-    }
-    return url
+  public var url: String {
+    return path + "." + pathExtension
   }
 }

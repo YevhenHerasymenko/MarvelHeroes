@@ -14,15 +14,17 @@ let imageCache = NSCache<NSString, UIImage>()
 
 extension UIImageView {
 
-  func imageFromServerURL(_ URLString: String, placeHolder: UIImage?) {
-
+  func imageFromServerURL(_ urlString: String?, placeHolder: UIImage?) {
     self.image = nil
-    if let cachedImage = imageCache.object(forKey: NSString(string: URLString)) {
+    guard let urlString = urlString else {
+      return
+    }
+    if let cachedImage = imageCache.object(forKey: NSString(string: urlString)) {
       self.image = cachedImage
       return
     }
 
-    if let url = URL(string: URLString) {
+    if let url = URL(string: urlString) {
       URLSession.shared.dataTask(with: url, completionHandler: { (data, _, error) in
 
         //print("RESPONSE FROM API: \(response)")
@@ -36,7 +38,7 @@ extension UIImageView {
         DispatchQueue.main.async {
           if let data = data {
             if let downloadedImage = UIImage(data: data) {
-              imageCache.setObject(downloadedImage, forKey: NSString(string: URLString))
+              imageCache.setObject(downloadedImage, forKey: NSString(string: urlString))
               self.image = downloadedImage
             }
           }

@@ -5,3 +5,7 @@
   Created by YevhenHerasymenko on 5/30/19.
   Copyright © 2019 YevhenHerasymenko. All rights reserved.
 */
+
+"save" = "save";
+"delete" = "delete";
+"characters" = "Characters";

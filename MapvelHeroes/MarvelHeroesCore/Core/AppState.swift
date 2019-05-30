@@ -10,6 +10,7 @@ import Foundation
 
 public struct AppState: StateType {
   public var searchCharactersState: SearchCharactersFlow.State
+  public var characterDetailsState: CharacterDetailsFlow.State
 
   public enum Actions: Action {
     /// action for clear whole data in app state
@@ -22,12 +23,15 @@ extension AppState {
     switch action {
     case AppState.Actions.clearData:
       return AppState(
-        searchCharactersState: SearchCharactersFlow.State()
+        searchCharactersState: SearchCharactersFlow.State(),
+        characterDetailsState: CharacterDetailsFlow.State()
       )
     default:
       return AppState(
         searchCharactersState: SearchCharactersFlow.Reducer.handleAction(action: action,
-                                                                         state: state?.searchCharactersState)
+                                                                         state: state?.searchCharactersState),
+        characterDetailsState: CharacterDetailsFlow.Reducer.handleAction(action: action, state:
+          state?.characterDetailsState)
       )
     }
   }
