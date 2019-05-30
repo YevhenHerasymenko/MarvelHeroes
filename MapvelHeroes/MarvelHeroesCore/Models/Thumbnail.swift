@@ -15,8 +15,8 @@ public struct Thumbnail: Codable {
     case pathExtension = "extension"
   }
 
-  private let path: String
-  private let pathExtension: String
+  let path: String
+  let pathExtension: String
 
   public var url: URL {
     guard let url = URL(string: path + "." + pathExtension) else {

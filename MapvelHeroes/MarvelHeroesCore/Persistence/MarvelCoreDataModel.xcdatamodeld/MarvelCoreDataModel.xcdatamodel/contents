@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18F132" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CharacterEntity" representedClassName="CharacterEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="characterDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="thumbnail" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ThumbnailEntity" inverseName="character" inverseEntity="ThumbnailEntity" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="identifier"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="ThumbnailEntity" representedClassName="ThumbnailEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="path" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pathExtension" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="character" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CharacterEntity" inverseName="thumbnail" inverseEntity="CharacterEntity" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CharacterEntity" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="ThumbnailEntity" positionX="-54" positionY="9" width="128" height="90"/>
+    </elements>
+</model>

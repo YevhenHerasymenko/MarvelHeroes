@@ -26,7 +26,6 @@
 		7433DAD5229EFE140009EE53 /* PersistenceMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433DAD4229EFE140009EE53 /* PersistenceMiddleware.swift */; };
 		7433DAD8229EFE4A0009EE53 /* CoreDataWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433DAD7229EFE4A0009EE53 /* CoreDataWorker.swift */; };
 		74770AAA229D631B00A23175 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770AA9229D631B00A23175 /* AppDelegate.swift */; };
-		74770AAC229D631B00A23175 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770AAB229D631B00A23175 /* ViewController.swift */; };
 		74770AAF229D631B00A23175 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74770AAD229D631B00A23175 /* Main.storyboard */; };
 		74770AB1229D631C00A23175 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74770AB0229D631C00A23175 /* Assets.xcassets */; };
 		74770AB4229D631C00A23175 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74770AB2229D631C00A23175 /* LaunchScreen.storyboard */; };
@@ -42,6 +41,15 @@
 		74770AF5229D7FF200A23175 /* AsyncBlockOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770AF4229D7FF200A23175 /* AsyncBlockOperation.swift */; };
 		74770AF7229E8EA000A23175 /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770AF6229E8EA000A23175 /* Thumbnail.swift */; };
 		74770AF9229E947800A23175 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770AF8229E947800A23175 /* Item.swift */; };
+		74770AFE229FE14F00A23175 /* CharactersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770AFC229FE14F00A23175 /* CharactersListViewController.swift */; };
+		74770AFF229FE14F00A23175 /* CharactersListDataTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770AFD229FE14F00A23175 /* CharactersListDataTransformer.swift */; };
+		74770B02229FE1A500A23175 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770B01229FE1A500A23175 /* ViewModel.swift */; };
+		74770B04229FEED900A23175 /* StateTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770B03229FEED900A23175 /* StateTransformer.swift */; };
+		74770B08229FF4B800A23175 /* MarvelCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 74770B06229FF4B800A23175 /* MarvelCoreDataModel.xcdatamodeld */; };
+		74770B0C229FFCCF00A23175 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 74770B0B229FFCCF00A23175 /* Localizable.strings */; };
+		74770B0F22A00ED800A23175 /* ModelTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770B0E22A00ED800A23175 /* ModelTransformer.swift */; };
+		74770B1122A00F1300A23175 /* ThumbnailTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770B1022A00F1300A23175 /* ThumbnailTransform.swift */; };
+		74770B1322A010D300A23175 /* CharacterTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770B1222A010D300A23175 /* CharacterTransform.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,7 +118,6 @@
 		7433DAD7229EFE4A0009EE53 /* CoreDataWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataWorker.swift; sourceTree = "<group>"; };
 		74770AA6229D631B00A23175 /* MapvelHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapvelHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74770AA9229D631B00A23175 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		74770AAB229D631B00A23175 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		74770AAE229D631B00A23175 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		74770AB0229D631C00A23175 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74770AB3229D631C00A23175 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -130,6 +137,15 @@
 		74770AF4229D7FF200A23175 /* AsyncBlockOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncBlockOperation.swift; sourceTree = "<group>"; };
 		74770AF6229E8EA000A23175 /* Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
 		74770AF8229E947800A23175 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		74770AFC229FE14F00A23175 /* CharactersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewController.swift; sourceTree = "<group>"; };
+		74770AFD229FE14F00A23175 /* CharactersListDataTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListDataTransformer.swift; sourceTree = "<group>"; };
+		74770B01229FE1A500A23175 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		74770B03229FEED900A23175 /* StateTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateTransformer.swift; sourceTree = "<group>"; };
+		74770B07229FF4B800A23175 /* MarvelCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MarvelCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		74770B0B229FFCCF00A23175 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		74770B0E22A00ED800A23175 /* ModelTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTransformer.swift; sourceTree = "<group>"; };
+		74770B1022A00F1300A23175 /* ThumbnailTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailTransform.swift; sourceTree = "<group>"; };
+		74770B1222A010D300A23175 /* CharacterTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTransform.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,7 +236,6 @@
 		7433DAD1229EFD7C0009EE53 /* Persistance */ = {
 			isa = PBXGroup;
 			children = (
-				7433DAD2229EFDDC0009EE53 /* PersistentManager.swift */,
 				7433DAD4229EFE140009EE53 /* PersistenceMiddleware.swift */,
 				7433DAD6229EFE390009EE53 /* CoreData */,
 			);
@@ -231,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				7433DAD7229EFE4A0009EE53 /* CoreDataWorker.swift */,
+				74770B0D22A00E3100A23175 /* ModelTransformation */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -261,7 +277,9 @@
 			isa = PBXGroup;
 			children = (
 				74770AA9229D631B00A23175 /* AppDelegate.swift */,
-				74770AAB229D631B00A23175 /* ViewController.swift */,
+				74770B0A229FFCAF00A23175 /* Resources */,
+				74770B00229FE16800A23175 /* Core */,
+				74770AFA229FE10200A23175 /* Screens */,
 				74770AAD229D631B00A23175 /* Main.storyboard */,
 				74770AB0229D631C00A23175 /* Assets.xcassets */,
 				74770AB2229D631C00A23175 /* LaunchScreen.storyboard */,
@@ -282,6 +300,7 @@
 		74770ACF229D670F00A23175 /* MarvelHeroesCore */ = {
 			isa = PBXGroup;
 			children = (
+				74770B05229FF49400A23175 /* Persistence */,
 				7433DAC4229EFBB00009EE53 /* Flows */,
 				7433DABD229EE5ED0009EE53 /* Core */,
 				7433DAB8229DBC6E0009EE53 /* Extensions */,
@@ -322,6 +341,59 @@
 				7433DABB229DC1E90009EE53 /* Crypto.swift */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		74770AFA229FE10200A23175 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				74770AFB229FE11100A23175 /* CharactersList */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		74770AFB229FE11100A23175 /* CharactersList */ = {
+			isa = PBXGroup;
+			children = (
+				74770AFC229FE14F00A23175 /* CharactersListViewController.swift */,
+				74770AFD229FE14F00A23175 /* CharactersListDataTransformer.swift */,
+			);
+			path = CharactersList;
+			sourceTree = "<group>";
+		};
+		74770B00229FE16800A23175 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				74770B01229FE1A500A23175 /* ViewModel.swift */,
+				74770B03229FEED900A23175 /* StateTransformer.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		74770B05229FF49400A23175 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				7433DAD2229EFDDC0009EE53 /* PersistentManager.swift */,
+				74770B06229FF4B800A23175 /* MarvelCoreDataModel.xcdatamodeld */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		74770B0A229FFCAF00A23175 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				74770B0B229FFCCF00A23175 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		74770B0D22A00E3100A23175 /* ModelTransformation */ = {
+			isa = PBXGroup;
+			children = (
+				74770B0E22A00ED800A23175 /* ModelTransformer.swift */,
+				74770B1022A00F1300A23175 /* ThumbnailTransform.swift */,
+				74770B1222A010D300A23175 /* CharacterTransform.swift */,
+			);
+			path = ModelTransformation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -466,6 +538,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74770AB4229D631C00A23175 /* LaunchScreen.storyboard in Resources */,
+				74770B0C229FFCCF00A23175 /* Localizable.strings in Resources */,
 				74770AB1229D631C00A23175 /* Assets.xcassets in Resources */,
 				74770AAF229D631B00A23175 /* Main.storyboard in Resources */,
 			);
@@ -499,8 +572,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74770AAC229D631B00A23175 /* ViewController.swift in Sources */,
+				74770B02229FE1A500A23175 /* ViewModel.swift in Sources */,
 				74770AAA229D631B00A23175 /* AppDelegate.swift in Sources */,
+				74770AFE229FE14F00A23175 /* CharactersListViewController.swift in Sources */,
+				74770AFF229FE14F00A23175 /* CharactersListDataTransformer.swift in Sources */,
+				74770B04229FEED900A23175 /* StateTransformer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +592,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74770B1322A010D300A23175 /* CharacterTransform.swift in Sources */,
 				7433DAD3229EFDDC0009EE53 /* PersistentManager.swift in Sources */,
 				7433DACD229EFCA70009EE53 /* Thunk.swift in Sources */,
 				7433DAC1229EF69A0009EE53 /* Store.swift in Sources */,
@@ -524,12 +601,15 @@
 				7433DAB7229DBBEB0009EE53 /* Character.swift in Sources */,
 				7433DAC3229EF90F0009EE53 /* Subscription.swift in Sources */,
 				7433DAB1229DAF890009EE53 /* ServerData.swift in Sources */,
+				74770B08229FF4B800A23175 /* MarvelCoreDataModel.xcdatamodeld in Sources */,
 				7433DABF229EE6070009EE53 /* Redux.swift in Sources */,
 				7433DAD0229EFD0C0009EE53 /* NetworkMiddleware.swift in Sources */,
 				7433DAD5229EFE140009EE53 /* PersistenceMiddleware.swift in Sources */,
 				74770AF7229E8EA000A23175 /* Thumbnail.swift in Sources */,
+				74770B0F22A00ED800A23175 /* ModelTransformer.swift in Sources */,
 				7433DABA229DBC7C0009EE53 /* String.swift in Sources */,
 				7433DAAF229DAEB50009EE53 /* ServerError.swift in Sources */,
+				74770B1122A00F1300A23175 /* ThumbnailTransform.swift in Sources */,
 				7433DAC9229EFC1C0009EE53 /* Middleware.swift in Sources */,
 				74770AEE229D7C9100A23175 /* NetworkSessionManager.swift in Sources */,
 				74770AF0229D7D2A00A23175 /* NetworkError.swift in Sources */,
@@ -940,6 +1020,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		74770B06229FF4B800A23175 /* MarvelCoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				74770B07229FF4B800A23175 /* MarvelCoreDataModel.xcdatamodel */,
+			);
+			currentVersion = 74770B07229FF4B800A23175 /* MarvelCoreDataModel.xcdatamodel */;
+			path = MarvelCoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 74770A9E229D631B00A23175 /* Project object */;
 }

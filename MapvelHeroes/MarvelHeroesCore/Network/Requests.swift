@@ -14,7 +14,7 @@ import Foundation
 private let publicApiKey = "001ac6c73378bbfff488a36141458af2"
 private let privateApiKey = "f032d7db9b2a20cf5025e7fe740b477857085a58"
 
-public enum CharacterEndpoints: NetworkRouting {
+public enum CharacterEndpoints: NetworkRouting, Action {
   case characters(offset: Int, name: String?)
   case itemDetails(urlValue: String)
 

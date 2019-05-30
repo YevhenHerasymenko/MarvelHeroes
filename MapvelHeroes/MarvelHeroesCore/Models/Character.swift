@@ -18,8 +18,10 @@ public struct Character: Codable {
     case series
     case stories
     case events
+    case identifier = "id"
   }
 
+  public let identifier: Int
   public let name: String
   public let description: String
   public let thumbnail: Thumbnail

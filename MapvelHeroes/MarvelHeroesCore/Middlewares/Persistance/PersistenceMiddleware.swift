@@ -9,7 +9,9 @@
 import Foundation
 
 enum PersistanceActions: Action {
-  case store
+  case revialSavedCharacters
+  case store(Character)
+  case delete(Character)
 }
 
 import CoreData
@@ -41,8 +43,12 @@ extension PersistenceMiddleware {
       return action
     }
     switch persistentAction {
-    case .store:
-      CoreDataWorker.store(service: service)
+    case .revialSavedCharacters:
+      let characters = CoreDataWorker.loadCharacters(service: service)
+    case .store(let character):
+      CoreDataWorker.store(character: character, service: service)
+    case .delete(let character):
+      CoreDataWorker.delete(character: character, service: service)
     }
     return nil
   }
