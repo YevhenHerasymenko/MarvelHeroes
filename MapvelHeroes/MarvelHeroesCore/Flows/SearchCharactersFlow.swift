@@ -93,10 +93,17 @@ extension SearchCharactersFlow {
     return Thunk<AppState> { dispatch, _ in
       dispatch(Actions.setQuery(query))
       if let query = query {
+        switch query.count {
+        case 0:
+          dispatch(CharacterEndpoints.characters(offset: 0, name: nil))
+        case let count where count > 2:
+          dispatch(CharacterEndpoints.characters(offset: 0, name: query))
+        default:
+          return
+        }
         guard query.count > 2 else {
           return
         }
-        dispatch(CharacterEndpoints.characters(offset: 0, name: query))
       } else {
         dispatch(CharacterEndpoints.characters(offset: 0, name: nil))
       }
