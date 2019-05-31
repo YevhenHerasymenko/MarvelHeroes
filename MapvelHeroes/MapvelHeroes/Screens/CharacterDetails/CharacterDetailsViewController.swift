@@ -11,6 +11,10 @@ import MarvelHeroesCore
 
 class CharacterDetailsViewController: UITableViewController {
 
+  private enum Segue: String {
+    case showItem
+  }
+
   private enum Section: Int {
     case description
     case comics
@@ -65,8 +69,8 @@ class CharacterDetailsViewController: UITableViewController {
     tableView.tableFooterView = UIView()
     tableView.register(ItemTableViewCell.nib,
                        forCellReuseIdentifier: ItemTableViewCell.identifier)
-    tableView.register(CharacterDescriptionTableViewCell.nib,
-                       forCellReuseIdentifier: CharacterDescriptionTableViewCell.identifier)
+    tableView.register(DescriptionTableViewCell.nib,
+                       forCellReuseIdentifier: DescriptionTableViewCell.identifier)
   }
 
   deinit {
@@ -115,43 +119,65 @@ extension CharacterDetailsViewController {
     guard let section = Section(rawValue: indexPath.section) else {
       fatalError()
     }
+    let cell: UITableViewCell
     switch section {
     case .description:
-      guard let cell = tableView.dequeueReusableCell(withIdentifier: CharacterDescriptionTableViewCell.identifier,
-                                                     for: indexPath) as? CharacterDescriptionTableViewCell else {
-                                                      fatalError()
-      }
-      cell.model = CharacterDescriptionTableViewCell.Model(description: model.description)
-      return cell
+      cell = descriptionCell(for: indexPath)
     case .comics:
-      guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableViewCell.identifier,
-                                                     for: indexPath) as? ItemTableViewCell else {
-                                                      fatalError()
-      }
-      cell.model = model.comics[indexPath.row]
-      return cell
+      cell = comicsCell(for: indexPath)
     case .stories:
-      guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableViewCell.identifier,
-                                                     for: indexPath) as? ItemTableViewCell else {
-                                                      fatalError()
-      }
-      cell.model = model.stories[indexPath.row]
-      return cell
+      cell = storiesCell(for: indexPath)
     case .series:
-      guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableViewCell.identifier,
-                                                     for: indexPath) as? ItemTableViewCell else {
-                                                      fatalError()
-      }
-      cell.model = model.series[indexPath.row]
-      return cell
+      cell = seriesCell(for: indexPath)
     case .events:
-      guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableViewCell.identifier,
-                                                     for: indexPath) as? ItemTableViewCell else {
-                                                      fatalError()
-      }
-      cell.model = model.events[indexPath.row]
-      return cell
+      cell = eventCell(for: indexPath)
     }
+    return cell
+  }
+
+  private func descriptionCell(for indexPath: IndexPath) -> UITableViewCell {
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: DescriptionTableViewCell.identifier,
+                                                   for: indexPath) as? DescriptionTableViewCell else {
+                                                    fatalError()
+    }
+    cell.model = DescriptionTableViewCell.Model(description: model.description)
+    return cell
+  }
+
+  private func comicsCell(for indexPath: IndexPath) -> UITableViewCell {
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableViewCell.identifier,
+                                                   for: indexPath) as? ItemTableViewCell else {
+                                                    fatalError()
+    }
+    cell.model = model.comics[indexPath.row]
+    return cell
+  }
+
+  private func storiesCell(for indexPath: IndexPath) -> UITableViewCell {
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableViewCell.identifier,
+                                                   for: indexPath) as? ItemTableViewCell else {
+                                                    fatalError()
+    }
+    cell.model = model.stories[indexPath.row]
+    return cell
+  }
+
+  private func seriesCell(for indexPath: IndexPath) -> UITableViewCell {
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableViewCell.identifier,
+                                                   for: indexPath) as? ItemTableViewCell else {
+                                                    fatalError()
+    }
+    cell.model = model.series[indexPath.row]
+    return cell
+  }
+
+  private func eventCell(for indexPath: IndexPath) -> UITableViewCell {
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableViewCell.identifier,
+                                                   for: indexPath) as? ItemTableViewCell else {
+                                                    fatalError()
+    }
+    cell.model = model.events[indexPath.row]
+    return cell
   }
 
   override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -174,6 +200,7 @@ extension CharacterDetailsViewController {
     case .events:
       mainStore.dispatch(CharacterDetailsFlow.didSelectEvent(at: indexPath.row))
     }
+    performSegue(withIdentifier: Segue.showItem.rawValue, sender: nil)
   }
 
 }

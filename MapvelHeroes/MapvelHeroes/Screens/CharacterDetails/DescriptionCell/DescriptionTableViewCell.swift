@@ -8,9 +8,9 @@
 
 import UIKit
 
-class CharacterDescriptionTableViewCell: UITableViewCell, ReusableView {
+class DescriptionTableViewCell: UITableViewCell, ReusableView {
 
-  static var identifier: String = String(describing: CharacterDescriptionTableViewCell.self)
+  static var identifier: String = String(describing: DescriptionTableViewCell.self)
 
   @IBOutlet private weak var descriptionLabel: UILabel!
 

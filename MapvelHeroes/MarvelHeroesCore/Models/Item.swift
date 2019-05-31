@@ -37,6 +37,6 @@ public struct ItemFull: Codable {
   }
 
   public let title: String
-  public let description: String
-  public let thumbnail: Thumbnail
+  public let description: String?
+  public let thumbnail: Thumbnail?
 }

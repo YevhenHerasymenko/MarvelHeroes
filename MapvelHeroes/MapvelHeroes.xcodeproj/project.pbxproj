@@ -61,8 +61,10 @@
 		74770B2922A1262300A23175 /* CharacterDetailsDataTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770B2722A1262300A23175 /* CharacterDetailsDataTransformer.swift */; };
 		74770B2D22A1266A00A23175 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770B2B22A1266A00A23175 /* ItemTableViewCell.swift */; };
 		74770B2E22A1266A00A23175 /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74770B2C22A1266A00A23175 /* ItemTableViewCell.xib */; };
-		74770B3222A130B200A23175 /* CharacterDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770B3022A130B200A23175 /* CharacterDescriptionTableViewCell.swift */; };
-		74770B3322A130B200A23175 /* CharacterDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74770B3122A130B200A23175 /* CharacterDescriptionTableViewCell.xib */; };
+		74770B3222A130B200A23175 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770B3022A130B200A23175 /* DescriptionTableViewCell.swift */; };
+		74770B3322A130B200A23175 /* DescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74770B3122A130B200A23175 /* DescriptionTableViewCell.xib */; };
+		74770B3722A13CB900A23175 /* ItemDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770B3522A13CB900A23175 /* ItemDetailsViewController.swift */; };
+		74770B3822A13CB900A23175 /* ItemDetailsDataTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74770B3622A13CB900A23175 /* ItemDetailsDataTransformer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,8 +172,10 @@
 		74770B2722A1262300A23175 /* CharacterDetailsDataTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsDataTransformer.swift; sourceTree = "<group>"; };
 		74770B2B22A1266A00A23175 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		74770B2C22A1266A00A23175 /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
-		74770B3022A130B200A23175 /* CharacterDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDescriptionTableViewCell.swift; sourceTree = "<group>"; };
-		74770B3122A130B200A23175 /* CharacterDescriptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterDescriptionTableViewCell.xib; sourceTree = "<group>"; };
+		74770B3022A130B200A23175 /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		74770B3122A130B200A23175 /* DescriptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionTableViewCell.xib; sourceTree = "<group>"; };
+		74770B3522A13CB900A23175 /* ItemDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsViewController.swift; sourceTree = "<group>"; };
+		74770B3622A13CB900A23175 /* ItemDetailsDataTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsDataTransformer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -457,6 +461,7 @@
 		74770B2522A1260B00A23175 /* CharacterDetails */ = {
 			isa = PBXGroup;
 			children = (
+				74770B3422A13CA300A23175 /* ItemDetails */,
 				74770B2622A1262300A23175 /* CharacterDetailsViewController.swift */,
 				74770B2722A1262300A23175 /* CharacterDetailsDataTransformer.swift */,
 				74770B2F22A1309B00A23175 /* DescriptionCell */,
@@ -477,10 +482,19 @@
 		74770B2F22A1309B00A23175 /* DescriptionCell */ = {
 			isa = PBXGroup;
 			children = (
-				74770B3022A130B200A23175 /* CharacterDescriptionTableViewCell.swift */,
-				74770B3122A130B200A23175 /* CharacterDescriptionTableViewCell.xib */,
+				74770B3022A130B200A23175 /* DescriptionTableViewCell.swift */,
+				74770B3122A130B200A23175 /* DescriptionTableViewCell.xib */,
 			);
 			path = DescriptionCell;
+			sourceTree = "<group>";
+		};
+		74770B3422A13CA300A23175 /* ItemDetails */ = {
+			isa = PBXGroup;
+			children = (
+				74770B3522A13CB900A23175 /* ItemDetailsViewController.swift */,
+				74770B3622A13CB900A23175 /* ItemDetailsDataTransformer.swift */,
+			);
+			path = ItemDetails;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -627,7 +641,7 @@
 			files = (
 				74770AB4229D631C00A23175 /* LaunchScreen.storyboard in Resources */,
 				74770B0C229FFCCF00A23175 /* Localizable.strings in Resources */,
-				74770B3322A130B200A23175 /* CharacterDescriptionTableViewCell.xib in Resources */,
+				74770B3322A130B200A23175 /* DescriptionTableViewCell.xib in Resources */,
 				74770AB1229D631C00A23175 /* Assets.xcassets in Resources */,
 				74770AAF229D631B00A23175 /* Main.storyboard in Resources */,
 				74770B1B22A0263300A23175 /* CharactersListTableViewCell.xib in Resources */,
@@ -688,15 +702,17 @@
 				74770B02229FE1A500A23175 /* ViewModel.swift in Sources */,
 				74770B1A22A0263300A23175 /* CharactersListTableViewCell.swift in Sources */,
 				74770AAA229D631B00A23175 /* AppDelegate.swift in Sources */,
+				74770B3822A13CB900A23175 /* ItemDetailsDataTransformer.swift in Sources */,
 				74770AFE229FE14F00A23175 /* CharactersListViewController.swift in Sources */,
 				74770B2D22A1266A00A23175 /* ItemTableViewCell.swift in Sources */,
 				74770B2922A1262300A23175 /* CharacterDetailsDataTransformer.swift in Sources */,
-				74770B3222A130B200A23175 /* CharacterDescriptionTableViewCell.swift in Sources */,
+				74770B3222A130B200A23175 /* DescriptionTableViewCell.swift in Sources */,
 				74770AFF229FE14F00A23175 /* CharactersListDataTransformer.swift in Sources */,
 				74770B1D22A0266B00A23175 /* ViewIdentifier.swift in Sources */,
 				74770B1622A0258700A23175 /* UIImageView.swift in Sources */,
 				74770B2822A1262300A23175 /* CharacterDetailsViewController.swift in Sources */,
 				74770B2322A11DF900A23175 /* PaginationTableViewCell.swift in Sources */,
+				74770B3722A13CB900A23175 /* ItemDetailsViewController.swift in Sources */,
 				74770B04229FEED900A23175 /* StateTransformer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
