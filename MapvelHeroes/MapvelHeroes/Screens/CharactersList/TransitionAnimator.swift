@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+class TransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
   var duration: TimeInterval
   var isPresenting: Bool
   var originFrame: CGRect
@@ -25,7 +25,7 @@ class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     let container = transitionContext.containerView
 
     guard let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
-      let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
+      let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to),
       let toView = toViewController.view,
       let fromView = fromViewController.view else {
         return
@@ -35,13 +35,20 @@ class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
       ? container.addSubview(toViewController.view)
       : container.insertSubview(toViewController.view, belowSubview: fromViewController.view)
 
-    let detailController = (isPresenting ? toViewController : fromViewController) as? CharacterDetailsViewController
-    guard let artwork = detailController?.imageView else { return }
-    artwork.image = image
-    artwork.alpha = 0
+    let detailVC = (isPresenting ? toViewController : fromViewController) as? CharacterDetailsViewController
+    guard let detailController = detailVC,
+      let header = detailController.imageView,
+      let detailView = detailController.view else {
+      return
+    }
+    header.image = image
+    header.alpha = 0
 
-    let transitionImageView = UIImageView(frame: isPresenting ? originFrame : artwork.frame)
+    let headerFrame = detailController.tableView.convert(header.frame, to: nil)
+
+    let transitionImageView = UIImageView(frame: isPresenting ? originFrame : headerFrame)
     transitionImageView.image = image
+    transitionImageView.contentMode = .scaleAspectFit
 
     container.addSubview(transitionImageView)
 
@@ -49,16 +56,18 @@ class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
       ?  CGRect(x: fromView.frame.width, y: 0, width: toView.frame.width, height: toView.frame.height)
       : toView.frame
     toView.alpha = isPresenting ? 0 : 1
-    toViewlayoutIfNeeded()
+    toView.layoutIfNeeded()
 
     UIView.animate(withDuration: duration, animations: {
-      transitionImageView.frame = self.isPresenting ? artwork.frame : self.originFrame
-      detailView.frame = self.isPresenting ? fromView.frame : CGRect(x: toView.frame.width, y: 0, width: toView.frame.width, height: toView.frame.height)
+      transitionImageView.frame = self.isPresenting ? header.frame : self.originFrame
+      detailView.frame = self.isPresenting
+        ? fromView.frame
+        : CGRect(x: toView.frame.width, y: 0, width: toView.frame.width, height: toView.frame.height)
       detailView.alpha = self.isPresenting ? 1 : 0
-    }, completion: { (finished) in
+    }, completion: { _ in
       transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
       transitionImageView.removeFromSuperview()
-      artwork.alpha = 1
+      header.alpha = 1
     })
   }
 

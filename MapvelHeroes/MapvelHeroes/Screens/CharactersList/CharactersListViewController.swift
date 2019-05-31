@@ -38,6 +38,10 @@ class CharactersListViewController: UITableViewController {
 
   let searchController = UISearchController(searchResultsController: nil)
 
+  private var selectedImage: UIImage?
+  private var selectedFrame: CGRect?
+  private var customInteractor: TransitionInteractor?
+
   override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
     return .portrait
   }
@@ -59,6 +63,7 @@ class CharactersListViewController: UITableViewController {
   }
 
   private func setupView() {
+    navigationController?.delegate = self
     tableView.tableHeaderView = UIView()
     tableView.tableFooterView = UIView()
     tableView.register(CharactersListTableViewCell.nib,
@@ -134,9 +139,13 @@ extension CharactersListViewController {
   }
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    guard let section = Section(rawValue: indexPath.section), section == .cells else {
-      fatalError()
+    guard let section = Section(rawValue: indexPath.section),
+      section == .cells,
+      let cell = tableView.cellForRow(at: indexPath) as? CharactersListTableViewCell else {
+      return
     }
+    selectedFrame = cell.convert(cell.avatarView.frame, to: nil)
+    selectedImage = cell.avatarView.image
     mainStore.dispatch(SearchCharactersFlow.didSelectCharacter(at: indexPath.row))
     performSegue(withIdentifier: Segue.showCharacter.rawValue, sender: nil)
   }
@@ -149,6 +158,40 @@ extension CharactersListViewController {
     }
     cell.activityIndicator.startAnimating()
     mainStore.dispatch(SearchCharactersFlow.paginateIfNeeded())
+  }
+
+}
+
+// MARK: - Bavigation controller delegate
+extension CharactersListViewController: UINavigationControllerDelegate {
+
+  func navigationController(_ navigationController: UINavigationController,
+                            interactionControllerFor animationController: UIViewControllerAnimatedTransitioning)
+    -> UIViewControllerInteractiveTransitioning? {
+      guard let interactor = customInteractor else { return nil }
+      return interactor.transitionInProgress ? customInteractor : nil
+  }
+
+  func navigationController(_ navigationController: UINavigationController,
+                            animationControllerFor operation: UINavigationController.Operation,
+                            from fromVC: UIViewController,
+                            to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    guard let frame = selectedFrame, let image = selectedImage else { return nil }
+    switch operation {
+    case .push where fromVC is CharactersListViewController:
+      customInteractor = TransitionInteractor(attachTo: toVC)
+      return TransitionAnimator(duration: TimeInterval(UINavigationController.hideShowBarDuration),
+                                isPresenting: true,
+                                originFrame: frame,
+                                image: image)
+    case .pop where toVC is CharactersListViewController:
+      return TransitionAnimator(duration: TimeInterval(UINavigationController.hideShowBarDuration),
+                                isPresenting: false,
+                                originFrame: frame,
+                                image: image)
+    default:
+      return nil
+    }
   }
 
 }

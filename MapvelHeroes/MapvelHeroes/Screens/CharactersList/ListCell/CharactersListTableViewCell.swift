@@ -12,7 +12,7 @@ class CharactersListTableViewCell: UITableViewCell, ReusableView {
 
   static var identifier: String = String(describing: CharactersListTableViewCell.self)
 
-  @IBOutlet private weak var avatarView: UIImageView!
+  @IBOutlet weak var avatarView: UIImageView!
   @IBOutlet private weak var nameLabel: UILabel!
   @IBOutlet private weak var saveButton: UIButton!
 
