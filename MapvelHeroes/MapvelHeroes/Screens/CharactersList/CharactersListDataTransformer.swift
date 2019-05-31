@@ -23,9 +23,23 @@ struct CharactersListDataTransformer: StateTransformer {
                                                 mainStore.dispatch(SearchCharactersFlow.didTapSave(at: index))
       })
     }
+    let error: String? = {
+      if let action = state.action,
+        case .error(let error) = action,
+        case .network(let errorValue) = error {
+        if case .server(let value) = errorValue {
+          return value.status
+        } else {
+          return errorValue.localizedDescription
+        }
+      } else {
+        return nil
+      }
+    }()
+    let isAbleToPaginate = error == nil && state.total > cells.count
 
     return CharactersListViewController.Model(cells: cells,
-                                              isAbleToPaginate: false,
-                                              action: nil)
+                                              isAbleToPaginate: isAbleToPaginate,
+                                              error: error)
   }
 }

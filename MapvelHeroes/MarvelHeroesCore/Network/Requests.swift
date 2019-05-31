@@ -48,7 +48,7 @@ public enum CharacterEndpoints: NetworkRouting, Action {
     case .characters(let offset, let name):
       parameters = [
         "offset=\(offset)",
-        name.flatMap { "nameStartsWith=\($0)"},
+        name.flatMap { $0.count > 0 ? "nameStartsWith=\($0)" : nil },
         "limit=20",
         authPatameters]
     case .itemDetails:

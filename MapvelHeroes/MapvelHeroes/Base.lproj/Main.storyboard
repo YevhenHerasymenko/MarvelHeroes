@@ -23,10 +23,31 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="m34-Hd-Af4"/>
+                    <connections>
+                        <segue destination="GKL-zj-qiq" kind="show" identifier="showCharacter" id="JwR-MA-86w"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U9U-Xi-hkG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="863.768115942029" y="145.98214285714286"/>
+        </scene>
+        <!--Character Details View Controller-->
+        <scene sceneID="SSn-jt-WgP">
+            <objects>
+                <tableViewController id="GKL-zj-qiq" customClass="CharacterDetailsViewController" customModule="MapvelHeroes" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ff7-hF-xzf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <connections>
+                            <outlet property="dataSource" destination="GKL-zj-qiq" id="Npf-Ry-OZc"/>
+                            <outlet property="delegate" destination="GKL-zj-qiq" id="cvq-IR-No5"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lcb-mL-o3I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1679" y="141"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7c8-GP-sQr">

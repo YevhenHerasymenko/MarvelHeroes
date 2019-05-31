@@ -49,7 +49,7 @@ public class SessionManager: NetworkSessionManager {
           let object = try JSONDecoder().decode(T.self, from: data)
           resultCallback(NetworkResult<T>.success(object))
         } catch {
-          resultCallback(NetworkResult<T>.failure(.parsingError))
+          resultCallback(NetworkResult<T>.failure(SessionManager.parse(error: error, with: data)))
         }
       }).resume()
     }
@@ -62,9 +62,9 @@ public class SessionManager: NetworkSessionManager {
     networkOperationsQueue.cancelAllOperations()
   }
 
-  private static func parse(error: Error, with data: Data?) -> NetworkError {
+  private static func parse(error: Error?, with data: Data?) -> NetworkError {
     guard let responseData = data, !responseData.isEmpty else {
-      return error.asNetworkError()
+      return error?.asNetworkError() ?? .badResponse
     }
     guard let error = try? JSONDecoder().decode(ServerError.self, from: responseData) else {
       return .parsingError

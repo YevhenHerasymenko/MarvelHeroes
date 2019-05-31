@@ -9,3 +9,8 @@
 "save" = "save";
 "delete" = "delete";
 "characters" = "Characters";
+
+"comics" = "Comics";
+"stories" = "Stories";
+"events" = "Events";
+"series" = "Series";

@@ -11,33 +11,22 @@ import MarvelHeroesCore
 
 class CharactersListViewController: UITableViewController {
 
+  private enum Segue: String {
+    case showCharacter
+  }
+
   private enum Section: Int {
     case cells
     case loading
   }
 
-  enum Action: Equatable {
-    case loading
-    case error(String)
-
-    static func == (lhs: Action, rhs: Action) -> Bool {
-      switch (lhs, rhs) {
-      case (.loading, .loading),
-           (.error, .error):
-        return true
-      default:
-        return false
-      }
-    }
-  }
-
   struct Model: ViewModel, Equatable {
     let cells: [CharactersListTableViewCell.Model]
     let isAbleToPaginate: Bool
-    let action: Action?
+    let error: String?
 
     static var initial: CharactersListViewController.Model {
-      return Model(cells: [], isAbleToPaginate: false, action: nil)
+      return Model(cells: [], isAbleToPaginate: false, error: nil)
     }
   }
 
@@ -74,6 +63,8 @@ class CharactersListViewController: UITableViewController {
     tableView.tableFooterView = UIView()
     tableView.register(CharactersListTableViewCell.nib,
                        forCellReuseIdentifier: CharactersListTableViewCell.identifier)
+    tableView.register(PaginationTableViewCell.nib,
+                       forCellReuseIdentifier: PaginationTableViewCell.identifier)
     title = NSLocalizedString("characters", comment: "")
 
     searchController.searchResultsUpdater = self
@@ -133,8 +124,31 @@ extension CharactersListViewController {
       cell.model = model.cells[indexPath.row]
       return cell
     case .loading:
-      return UITableViewCell()
+      guard let cell = tableView.dequeueReusableCell(withIdentifier: PaginationTableViewCell.identifier,
+                                                     for: indexPath) as? PaginationTableViewCell else {
+                                                      fatalError()
+      }
+      cell.model = .init()
+      return cell
     }
+  }
+
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    guard let section = Section(rawValue: indexPath.section), section == .cells else {
+      fatalError()
+    }
+    mainStore.dispatch(SearchCharactersFlow.didSelectCharacter(at: indexPath.row))
+    performSegue(withIdentifier: Segue.showCharacter.rawValue, sender: nil)
+  }
+
+  override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    guard let section = Section(rawValue: indexPath.section),
+      section == .loading,
+      let cell = cell as? PaginationTableViewCell else {
+      return
+    }
+    cell.activityIndicator.startAnimating()
+    mainStore.dispatch(SearchCharactersFlow.paginateIfNeeded())
   }
 
 }
@@ -151,6 +165,18 @@ extension CharactersListViewController: ViewControllerModelSupport {
 
   func render(_ model: Model) {
     tableView.reloadData()
+
+    if let error = model.error {
+      show(error: error)
+    }
+  }
+
+  private func show(error: String) {
+    let alert = UIAlertController(title: error, message: nil, preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+      mainStore.dispatch(SearchCharactersFlow.didHandleAction())
+    }))
+    present(alert, animated: true, completion: nil)
   }
 
 }

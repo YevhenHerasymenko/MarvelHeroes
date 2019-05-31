@@ -63,7 +63,7 @@ extension SearchCharactersFlow.Reducer {
       } else {
         var newCharacters = state.characters
         newCharacters.append(contentsOf: characters)
-        state.characters = characters
+        state.characters = newCharacters
       }
     case .setSavedCharacters(let identifiers):
       state.savedCharacterIds = identifiers
