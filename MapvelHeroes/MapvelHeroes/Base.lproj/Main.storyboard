@@ -45,10 +45,15 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="imageView" destination="E4y-sL-o0o" id="SQB-gR-u2A"/>
                         <segue destination="dfd-5A-YXz" kind="show" identifier="showItem" id="c1K-TO-Vwa"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lcb-mL-o3I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="E4y-sL-o0o">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </objects>
             <point key="canvasLocation" x="1679" y="141"/>
         </scene>

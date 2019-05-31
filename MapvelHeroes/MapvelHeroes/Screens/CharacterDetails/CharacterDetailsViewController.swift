@@ -39,6 +39,8 @@ class CharacterDetailsViewController: UITableViewController {
 
   private static let titles = [nil, "comics", "stories", "series", "events"]
 
+  @IBOutlet weak var imageView: UIImageView!
+
   var model: Model = Model.initial {
     didSet {
       render(model)
@@ -65,12 +67,14 @@ class CharacterDetailsViewController: UITableViewController {
   }
 
   private func setupView() {
-    tableView.tableHeaderView = UIView()
     tableView.tableFooterView = UIView()
     tableView.register(ItemTableViewCell.nib,
                        forCellReuseIdentifier: ItemTableViewCell.identifier)
     tableView.register(DescriptionTableViewCell.nib,
                        forCellReuseIdentifier: DescriptionTableViewCell.identifier)
+
+    tableView.tableHeaderView = imageView
+    imageView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 200)
   }
 
   deinit {
@@ -218,6 +222,7 @@ extension CharacterDetailsViewController: ViewControllerModelSupport {
   func render(_ model: Model) {
     tableView.reloadData()
 
+    imageView.imageFromServerURL(model.avatar, placeHolder: nil)
     title = model.name
   }
 
