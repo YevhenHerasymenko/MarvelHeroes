@@ -14,3 +14,7 @@
 "stories" = "Stories";
 "events" = "Events";
 "series" = "Series";
+
+"noCharacters" = "No Characters";
+"noCharacterDescription" = "No information about character";
+"noItemDescription" = "No information about selected item";

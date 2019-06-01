@@ -27,13 +27,21 @@ class CharacterDetailsViewController: UITableViewController {
     let name: String?
     let avatar: String?
     let description: String?
+    let isSaved: Bool
     let comics: [ItemTableViewCell.Model]
     let events: [ItemTableViewCell.Model]
     let stories: [ItemTableViewCell.Model]
     let series: [ItemTableViewCell.Model]
 
     static var initial: CharacterDetailsViewController.Model {
-      return Model(name: nil, avatar: nil, description: nil, comics: [], events: [], stories: [], series: [])
+      return Model(name: nil,
+                   avatar: nil,
+                   description: nil,
+                   isSaved: false,
+                   comics: [],
+                   events: [],
+                   stories: [],
+                   series: [])
     }
   }
 
@@ -84,7 +92,13 @@ class CharacterDetailsViewController: UITableViewController {
 }
 
 // MARK: - IBActions
-extension CharacterDetailsViewController {}
+extension CharacterDetailsViewController {
+
+  @IBAction func didTapSave() {
+    mainStore.dispatch(CharacterDetailsFlow.didTapSave())
+  }
+
+}
 
 // MARK: - TableView
 extension CharacterDetailsViewController {
@@ -185,7 +199,26 @@ extension CharacterDetailsViewController {
   }
 
   override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return CharacterDetailsViewController.titles[section]
+    guard let section = Section(rawValue: section) else {
+      return nil
+    }
+    let numberOfRows: Int
+    switch section {
+    case .description:
+      numberOfRows = 1
+    case .comics:
+      numberOfRows = model.comics.count
+    case .stories:
+      numberOfRows = model.stories.count
+    case .series:
+      numberOfRows = model.series.count
+    case .events:
+      numberOfRows = model.events.count
+    }
+    guard numberOfRows > 0 else {
+      return nil
+    }
+    return CharacterDetailsViewController.titles[section.rawValue].flatMap { NSLocalizedString($0, comment: "") }
   }
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -224,6 +257,13 @@ extension CharacterDetailsViewController: ViewControllerModelSupport {
 
     imageView.imageFromServerURL(model.avatar, placeHolder: nil)
     title = model.name
+
+    let barButtonTitle = NSLocalizedString(model.isSaved ? "delete" : "save", comment: "")
+    let barButtonItem = UIBarButtonItem(title: barButtonTitle,
+                                        style: .plain,
+                                        target: self,
+                                        action: #selector(didTapSave))
+    navigationItem.rightBarButtonItem = barButtonItem
   }
 
 }

@@ -132,4 +132,13 @@ extension CharacterDetailsFlow {
     }
   }
 
+  public static func didTapSave() -> Thunk<AppState> {
+    return Thunk<AppState> { dispatch, getState in
+      guard let character = getState()?.characterDetailsState.character else {
+          fatalError()
+      }
+      dispatch(SearchCharactersFlow.save(character: character))
+    }
+  }
+
 }

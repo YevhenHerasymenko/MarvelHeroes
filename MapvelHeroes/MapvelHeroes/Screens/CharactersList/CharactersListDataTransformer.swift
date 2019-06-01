@@ -36,7 +36,7 @@ struct CharactersListDataTransformer: StateTransformer {
         return nil
       }
     }()
-    let isAbleToPaginate = error == nil && state.total > cells.count
+    let isAbleToPaginate = error == nil && (state.total > cells.count || (state.total == 0 && state.action != nil))
 
     return CharactersListViewController.Model(cells: cells,
                                               isAbleToPaginate: isAbleToPaginate,

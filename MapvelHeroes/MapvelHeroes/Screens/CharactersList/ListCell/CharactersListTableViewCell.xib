@@ -20,14 +20,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ya0-L4-8cO">
-                        <rect key="frame" x="10" y="10" width="60" height="60"/>
+                        <rect key="frame" x="16" y="10" width="60" height="60"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="jaT-Pq-TG7"/>
                             <constraint firstAttribute="height" constant="60" id="oSC-w6-veH"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4hF-0z-S1K">
-                        <rect key="frame" x="80" y="29.5" width="42" height="20.5"/>
+                        <rect key="frame" x="86" y="29.5" width="42" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -42,6 +42,13 @@
                             <action selector="didTapButton" destination="KGk-i7-Jjw" eventType="touchUpInside" id="lBw-zY-roT"/>
                         </connections>
                     </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HCB-qI-eVz">
+                        <rect key="frame" x="86" y="78.5" width="234" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="BJa-5K-s2j"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="4hF-0z-S1K" firstAttribute="leading" secondItem="Ya0-L4-8cO" secondAttribute="trailing" constant="10" id="0N3-Kl-07q"/>
@@ -49,10 +56,13 @@
                     <constraint firstItem="4hF-0z-S1K" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="7BG-IJ-ldC"/>
                     <constraint firstItem="4hF-0z-S1K" firstAttribute="top" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Lsy-aE-52w"/>
                     <constraint firstAttribute="trailing" secondItem="gxH-RF-9uF" secondAttribute="trailing" constant="10" id="V2K-9v-Du7"/>
-                    <constraint firstItem="Ya0-L4-8cO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="XqQ-Il-Kkm"/>
+                    <constraint firstItem="Ya0-L4-8cO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="XqQ-Il-Kkm"/>
+                    <constraint firstAttribute="trailing" secondItem="HCB-qI-eVz" secondAttribute="trailing" id="et3-aX-8PM"/>
                     <constraint firstItem="gxH-RF-9uF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4hF-0z-S1K" secondAttribute="trailing" constant="10" id="fWm-bx-bPw"/>
                     <constraint firstItem="gxH-RF-9uF" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="i73-a3-5ze"/>
+                    <constraint firstAttribute="bottom" secondItem="HCB-qI-eVz" secondAttribute="bottom" id="odP-ft-ekf"/>
                     <constraint firstItem="Ya0-L4-8cO" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="of8-w2-MIb"/>
+                    <constraint firstItem="HCB-qI-eVz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="86" id="yH8-OC-u7n"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

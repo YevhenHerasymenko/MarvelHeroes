@@ -32,9 +32,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     persistentContainer = createAndSetupCoreDataPersistenceStack()
     store = createStore(sessionManager, persistentContainer)
   }
-
-  func applicationWillTerminate(_ application: UIApplication) {
-    store.dispatch(AppState.clearData())
-  }
-
 }

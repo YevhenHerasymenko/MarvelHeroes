@@ -455,6 +455,7 @@
 				74770B01229FE1A500A23175 /* ViewModel.swift */,
 				74770B03229FEED900A23175 /* StateTransformer.swift */,
 				74770B1C22A0266B00A23175 /* ViewIdentifier.swift */,
+				74770B2F22A1309B00A23175 /* DescriptionCell */,
 				74770B1422A0256C00A23175 /* Extensions */,
 			);
 			path = Core;
@@ -519,7 +520,6 @@
 				74770B3422A13CA300A23175 /* ItemDetails */,
 				74770B2622A1262300A23175 /* CharacterDetailsViewController.swift */,
 				74770B2722A1262300A23175 /* CharacterDetailsDataTransformer.swift */,
-				74770B2F22A1309B00A23175 /* DescriptionCell */,
 				74770B2A22A1265500A23175 /* ItemCell */,
 			);
 			path = CharacterDetails;
@@ -540,7 +540,8 @@
 				74770B3022A130B200A23175 /* DescriptionTableViewCell.swift */,
 				74770B3122A130B200A23175 /* DescriptionTableViewCell.xib */,
 			);
-			path = DescriptionCell;
+			name = DescriptionCell;
+			path = ../Screens/CharacterDetails/DescriptionCell;
 			sourceTree = "<group>";
 		};
 		74770B3422A13CA300A23175 /* ItemDetails */ = {

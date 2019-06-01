@@ -140,6 +140,15 @@ extension SearchCharactersFlow {
         fatalError()
       }
       let character = state.characters[index]
+      dispatch(save(character: character))
+    }
+  }
+
+  public static func save(character: Character) -> Thunk<AppState> {
+    return Thunk<AppState> { dispatch, getState in
+      guard let state = getState()?.searchCharactersState else {
+          fatalError()
+      }
       var identifiers = state.savedCharacterIds
       let isSaved = identifiers.contains(character.identifier)
       if isSaved {

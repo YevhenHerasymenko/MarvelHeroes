@@ -18,6 +18,7 @@ class CharactersListViewController: UITableViewController {
   private enum Section: Int {
     case cells
     case loading
+    case noInfo
   }
 
   struct Model: ViewModel, Equatable {
@@ -70,6 +71,8 @@ class CharactersListViewController: UITableViewController {
                        forCellReuseIdentifier: CharactersListTableViewCell.identifier)
     tableView.register(PaginationTableViewCell.nib,
                        forCellReuseIdentifier: PaginationTableViewCell.identifier)
+    tableView.register(DescriptionTableViewCell.nib,
+                       forCellReuseIdentifier: DescriptionTableViewCell.identifier)
     title = NSLocalizedString("characters", comment: "")
 
     searchController.searchResultsUpdater = self
@@ -97,7 +100,7 @@ extension CharactersListViewController: UISearchResultsUpdating {
 extension CharactersListViewController {
 
   override func numberOfSections(in tableView: UITableView) -> Int {
-    return 2
+    return 3
   }
 
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -109,6 +112,8 @@ extension CharactersListViewController {
       return model.cells.count
     case .loading:
       return model.isAbleToPaginate ? 1 : 0
+    case .noInfo:
+      return model.cells.isEmpty && !model.isAbleToPaginate ? 1 : 0
     }
   }
 
@@ -134,6 +139,13 @@ extension CharactersListViewController {
                                                       fatalError()
       }
       cell.model = .init()
+      return cell
+    case .noInfo:
+      guard let cell = tableView.dequeueReusableCell(withIdentifier: DescriptionTableViewCell.identifier,
+                                                     for: indexPath) as? DescriptionTableViewCell else {
+                                                      fatalError()
+      }
+      cell.model = .init(description: NSLocalizedString("noCharacters", comment: ""))
       return cell
     }
   }

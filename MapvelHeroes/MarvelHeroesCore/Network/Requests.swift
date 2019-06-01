@@ -46,11 +46,10 @@ public enum CharacterEndpoints: NetworkRouting, Action {
     let parameters: [String?]
     switch self {
     case .characters(let offset, let name):
-      parameters = [
-        "offset=\(offset)",
-        name.flatMap { $0.count > 0 ? "nameStartsWith=\($0)" : nil },
-        "limit=20",
-        authPatameters]
+      let nameValue = name?.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed).flatMap {
+        $0.count > 0 ? "nameStartsWith=\($0)" : nil
+      }
+      parameters = ["offset=\(offset)", nameValue, "limit=20", authPatameters]
     case .itemDetails:
       parameters = [authPatameters]
     }
